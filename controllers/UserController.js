@@ -1,15 +1,15 @@
 var DB = require('../db');
 
-var PostsController = {
-    getPosts: function (callback) {
-        DB.query("SELECT * FROM posts", function (err, messages) {
+var UserController = {
+    login: function (callback) {
+        DB.query("SELECT * FROM user", function (err, messages) {
             if (err) throw err;
 
             callback(messages);
         });
     },
     saveNewPost: function (newPost, callback) {
-        DB.query('INSERT INTO posts SET ?', {comment: newPost}, function(err, result) {
+        DB.query('INSERT INTO posts SET ?', {comment: newPost}, function (err, result) {
             if (err) throw err;
 
             console.log(result.insertId);
@@ -17,6 +17,6 @@ var PostsController = {
             callback();
         });
     }
-}
+};
 
-module.exports = PostsController;
+module.exports = UserController;

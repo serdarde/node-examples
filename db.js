@@ -1,12 +1,24 @@
 // get mysql
 var mysql = require('mysql');
 
+
+/**
+ *  for PhpStorm auto complete
+ * @type {{query: DB.query}}
+ */
+var DB = {
+    query: function (a, e) {
+    },
+    escape: function(a){
+    }
+};
+
 // set connection data
-var DB = mysql.createConnection({
+DB = mysql.createConnection({
     host     : 'localhost',
     user     : 'root',
     password : '',
-    database : 'test'
+    database : 'drive2chat'
 });
 
 // connect to DB
